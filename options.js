@@ -32,6 +32,6 @@ function main() {
 
 document.addEventListener('DOMContentLoaded', function () {
   main();
-  document.querySelector('#default').addEventListener('click', toggle);
-  document.querySelector('#gmail').addEventListener('click', toggle);
+  //document.querySelector('#default').addEventListener('click', toggle);
+  //document.querySelector('#gmail').addEventListener('click', toggle);
 });
