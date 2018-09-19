@@ -1,1 +1,1 @@
-![alt text](/copy-clean-128x1289.png)
+![alt text](/copy-clean-128x128.png)
