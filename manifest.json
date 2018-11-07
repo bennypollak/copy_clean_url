@@ -12,7 +12,7 @@
     "tabs", "http://*/*", "https://*/*"
   ],
   "browser_action": {
-    "default_title": "Email this page",
+    "default_title": "Clean copy URL",
     "default_icon": "copy-clean-16x16.png"
   },
 
