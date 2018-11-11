@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// https://github.com/mdn/webextensions-examples/blob/master/context-menu-copy-link-with-types/clipboard-helper.js
+// https://github.com/mdn/webextensions-examples
+// /blob/master/context-menu-copy-link-with-types/
+// clipboard-helper.js
 const copyToClipboard = text => {
   const onCopy = event => {
     document.removeEventListener("copy", onCopy, true);
