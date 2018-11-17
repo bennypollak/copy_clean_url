@@ -1,20 +1,26 @@
 {
-  "name": "Copy Clean URL",
-  "description": "This extension copies the current URL without extraneous stuff.",
-  "version": "1.0.1",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "icons": { "128": "copy-clean-128x128.png" },
-  "options_page": "options.html",
-  "permissions": [
-    "tabs", "http://*/*", "https://*/*"
-  ],
-  "browser_action": {
-    "default_title": "Email this page",
-  "default_icon": "copy-clean-16x16.png"
-  },
+    "name": "Copy Clean URL",
+    "description": "This extension copies the current URL without extraneous stuff.",
+    "version": "1.0.1",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "options_page": "options.html",
+    "permissions": [
+        "tabs", "http://*/*", "https://*/*"
+    ], 
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "copy-clean-16x16.png",
+            "128": "copy-clean-128x128.png"
+        }
+    },
+    "icons": {
+            "16": "copy-clean-16x16.png",
+            "128": "copy-clean-128x128.png"
+     },
 
-  "manifest_version": 2
+    "manifest_version": 2
 }
