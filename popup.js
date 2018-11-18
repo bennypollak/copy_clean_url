@@ -4,19 +4,33 @@
 
 'use strict';
 
-let changeColor = document.getElementById('changeColor');
-
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
-});
-
-changeColor.onclick = function(element) {
-  let color = element.target.value;
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    console.log('copying %s', "tap")
-    chrome.tabs.executeScript(
-        tabs[0].id,
-        {code: 'document.body.style.backgroundColor = "' + color + '";'});
-  });
-};
+//let button = document.getElementById('changeColor');
+//
+//button.style.backgroundColor = 'white'
+//button.style.color = 'black'
+////button.innerHTML = 'init';
+bp.console.log('loading')
+processURL(function (texts) {
+bp.console.log('loading1 %s', texts)
+    for (var text of texts) {
+ bp.console.log('loading2 ', text)
+       let button = document.createElement("button");
+        button.innerHTML = text
+        button.onclick = function (element) {
+            bp.console.log('copying %s', button.innerHTML)
+            copyToClipboard(button.innerHTML)
+            window.close();
+        }
+        var node = document.createElement("li");
+        node.appendChild(button)
+             bp.console.log('create %s', button.innerHTML)
+       document.getElementById("buttons").appendChild(node);
+    }
+})
+//
+//button.onclick = function (element) {
+//    chrome.extension.getBackgroundPage().console.log('copying %s', button.innerHTML)
+//    copyToClipboard(button.innerHTML)
+//
+//    window.close();
+//};

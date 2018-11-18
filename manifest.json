@@ -3,7 +3,7 @@
     "description": "Copy the current URL without extraneous stuff.",
     "version": "1.0.2",
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["utils.js", "background.js"]
     },
     "icons": {
         "128": "copy-clean-128x128.png"
@@ -13,7 +13,7 @@
         "alarms", "tabs", "bookmarks", "declarativeWebRequest", "http://*/*", "https://*/*"
     ],
     "browser_action": {
-      "default_popup": "hello.html",
+      "default_popup": "popup.html",
         "default_title": "Clean copy",
         "default_icon": "copy-clean-16x16.png"
     },
