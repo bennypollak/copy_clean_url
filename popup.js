@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 'use strict';
-
 //let button = document.getElementById('changeColor');
 //
 //button.style.backgroundColor = 'white'
@@ -11,20 +10,20 @@
 ////button.innerHTML = 'init';
 bp.console.log('loading')
 processURL(function (texts) {
-bp.console.log('loading1 %s', texts)
+    bp.console.log('loading1 %s', texts)
     for (var text of texts) {
- bp.console.log('loading2 ', text)
-       let button = document.createElement("button");
+        bp.console.log('loading2 ', text)
+        let button = document.createElement("button");
         button.innerHTML = text
         button.onclick = function (element) {
             bp.console.log('copying %s', button.innerHTML)
             copyToClipboard(button.innerHTML)
             window.close();
         }
-        var node = document.createElement("li");
+        let node = document.createElement("li");
         node.appendChild(button)
-             bp.console.log('create %s', button.innerHTML)
-       document.getElementById("buttons").appendChild(node);
+        bp.console.log('create %s', button.innerHTML)
+        document.getElementById("buttons").appendChild(node);
     }
 })
 //

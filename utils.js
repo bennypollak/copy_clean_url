@@ -27,13 +27,13 @@ function processURL(cb) {
         var urls = []
         let url = tab.url
             console.log("url '%s'", url)
-        if (url.indexOf("http:") == 0 ||
+             urls.push(url)
+       if (url.indexOf("http:") == 0 ||
                 url.indexOf("https:") == 0) {
             var clean = url.replace(/\?.*/, "")
             console.log("cleaned '%s'", clean)
             urls.push(clean)
        }
-            urls.push(url)
             cb(urls)
    });
 }
