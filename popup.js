@@ -10,9 +10,7 @@
 ////button.innerHTML = 'init';
 bp.console.log('loading')
 processURL(function (texts) {
-    bp.console.log('loading1 %s', texts)
     for (var text of texts) {
-        bp.console.log('loading2 ', text)
         let button = document.createElement("button");
         button.innerHTML = text
         button.onclick = function (element) {
@@ -22,14 +20,6 @@ processURL(function (texts) {
         }
         let node = document.createElement("li");
         node.appendChild(button)
-        bp.console.log('create %s', button.innerHTML)
         document.getElementById("buttons").appendChild(node);
     }
 })
-//
-//button.onclick = function (element) {
-//    chrome.extension.getBackgroundPage().console.log('copying %s', button.innerHTML)
-//    copyToClipboard(button.innerHTML)
-//
-//    window.close();
-//};

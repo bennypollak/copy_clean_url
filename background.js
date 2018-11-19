@@ -4,10 +4,12 @@
 
 
 chrome.commands.onCommand.addListener(function (command) {
-    bp.console.log('Command:', command);
+    bp.console.log('Command:', command)
     processURL(function (texts) {
+        
         if (texts.length > 0) {
-            copyToClipboard(texts[0])
+            var item = command == 'clean-copy' ? item = texts.length-1 : 0
+            copyToClipboard(texts[item])
         }
     })
 });
