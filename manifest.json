@@ -5,16 +5,16 @@
     "background": {
         "scripts": ["utils.js", "background.js"]
     },
-    "icons": {
-        "128": "copy-clean-128x128.png"
-    },
+    "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
     "permissions": [
-        "tabs", "http://*/*", "https://*/*"
+        "contextMenus", "tabs", "http://*/*", "https://*/*"
     ],
     "browser_action": {
       "default_popup": "popup.html",
         "default_title": "Clean copy URL",
-        "default_icon": "copy-clean-16x16.png"
+        "default_icon": "icon128.png"
     },
 
     "commands": {

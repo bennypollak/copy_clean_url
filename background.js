@@ -13,3 +13,12 @@ chrome.commands.onCommand.addListener(function (command) {
         }
     })
 });
+
+//chrome.contextMenus.removeAll();
+//chrome.contextMenus.create({
+//      title: "Help",
+//      contexts: ["browser_action"],
+//      onclick: function() {
+//        alert('first');
+//      }
+//});
