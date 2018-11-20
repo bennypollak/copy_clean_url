@@ -1,1 +1,1 @@
- zip copy_clean_url.zip background.js content_script.js options.js manifest.json options.html copy-clean-128x128.png copy-clean-16x16.png
+zip cleancopy.zip background.js icon128.png icon16.png icon48.png manifest.json options.html options.js popup.html popup.js utils.js
