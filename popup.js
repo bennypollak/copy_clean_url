@@ -2,7 +2,8 @@
 
 'use strict';
 let title = document.getElementById('title');
-//let button = document.getElementById('changeColor');
+title.innerHTML = "t"
+////let button = document.getElementById('changeColor');
 //
 //button.style.backgroundColor = 'white'
 //button.style.color = 'black'
@@ -22,6 +23,12 @@ processURL(function (texts) {
             let url = button.innerHTML
             bp.console.log('copying %s %s %s', url, event.shiftKey, event.altKey)
             let key = currentKey()
+            if (OSName != "MacOS") {
+                if (event.shiftKey)
+                    key = shift
+                else if (event.altKey)
+                    key = alt
+            }
             if (key == shift) {
                 chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
                     var tab = tabs[0];
@@ -55,29 +62,32 @@ function currentKey() {
     return undefined
 }
 function setTitle() {
-let title = document.getElementById('title');
+    let title = document.getElementById('title');
     let key = currentKey()
-    var t = "Copy"
-    if (key == shift) {
-        t = "Open"
+    var t = ""
+    if (OSName == "MacOS") {
+
+        if (key == shift) {
+            t = "Open"
 //    } else if (key == cmd) {
 //        t = "Open"
-    } else    if (key == alt) {
-        t = "Open in new tab"
+        } else if (key == alt) {
+            t = "Open in new tab"
+        } else {
+            t = "Copy"
+        }
     }
     bp.console.log('t %s ', title.innerHTML, key)
     title.innerHTML = t
-//    title.innerHTML = "<h3>"+t+"</h3>"
 }
+setTitle()
 document.body.onkeydown = function (e) {
     keysDown["" + e.keyCode] = e.keyCode
     bp.console.log('down %s ' + e.keyCode, Object.keys(keysDown))
     setTitle()
-//    alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
 }
 document.body.onkeyup = function (e) {
     bp.console.log('up %s ', e.keyCode, Object.keys(keysDown).length)
     delete keysDown["" + e.keyCode]
     setTitle()
-//    alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
 }

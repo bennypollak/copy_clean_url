@@ -1,8 +1,10 @@
 // Copyright (c) 2018 Alben Software. All rights reserved.
 
 let bp = chrome.extension.getBackgroundPage()
-bp.console.log("loading utils")
-
+bp.console.log("loading utils s"+navigator.appVersion)
+var OSName=undefined
+if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+ bp.console.log('os ' + OSName)
 
 // https://github.com/mdn/webextensions-examples/blob/master/context-menu
 // -copy-link-with-types/clipboard-helper.js
