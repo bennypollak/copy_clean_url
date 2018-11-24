@@ -81,6 +81,7 @@ function setTitle() {
     title.innerHTML = t
 }
 setTitle()
+
 document.body.onkeydown = function (e) {
     keysDown["" + e.keyCode] = e.keyCode
     bp.console.log('down %s ' + e.keyCode, Object.keys(keysDown))

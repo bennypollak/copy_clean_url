@@ -31,8 +31,7 @@
         "just-copy": {
             "description": "just-copy",
             "suggested_key": {
-                "default": "Ctrl+Shift+M",
-                "mac": "MacCtrl+Shift+L"
+                "default": "Ctrl+Shift+U"
             }
         },
         "_execute_browser_action": {
