@@ -11,17 +11,18 @@ title.innerHTML = "t"
 var keysDown = {}
 
 processURL(function (texts) {
+            console.log('text', text)
     for (var text of texts) {
         let button = document.createElement("button");
         button.innerHTML = text
-        button.onclick = function (element) {
-            bp.console.log('copying %s', button.innerHTML)
-            copyToClipboard(button.innerHTML)
-            window.close();
-        }
+//        button.onclick = function (element) {
+//            console.log('copying %s', button.innerHTML)
+//            copyToClipboard(button.innerHTML)
+//            window.close();
+//        }
         button.onclick = function (event) {
             let url = button.innerHTML
-            bp.console.log('copying %s %s %s', url, event.shiftKey, event.altKey)
+            console.log('copying %s %s %s %s', url, event.shiftKey, event.altKey, OSName)
             let key = currentKey()
             if (OSName != "MacOS") {
                 if (event.shiftKey)
@@ -30,14 +31,10 @@ processURL(function (texts) {
                     key = alt
             }
             if (key == shift) {
-                chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-                    var tab = tabs[0];
-                    chrome.tabs.update(tab.id, {url: url});
-                })
-            }
-            if (key == alt) {
-                chrome.tabs.create({url: url}, function (tab) {
-                });
+                    chrome.tabs.update(null, {url: url});
+            } else if (key == alt) {
+                console.log('new')
+                chrome.tabs.create({url: url})
             } else {
                 copyToClipboard(url)
             }
@@ -48,6 +45,8 @@ processURL(function (texts) {
         document.getElementById("buttons").appendChild(node);
     }
 })
+
+
 let shift = 16
 let cmd = 91
 let ctrl = 17
@@ -55,7 +54,6 @@ let alt = 18
 
 function currentKey() {
     let keys = Object.keys(keysDown)
-    bp.console.log('kd %s ' + keysDown)
     if (keys != undefined && keys.length == 1) {
         return keys[0]
     }
@@ -77,18 +75,18 @@ function setTitle() {
             t = "Copy"
         }
     }
-    bp.console.log('t %s ', title.innerHTML, key)
+    console.log('t %s ', title.innerHTML, key)
     title.innerHTML = t
 }
 setTitle()
 
 document.body.onkeydown = function (e) {
     keysDown["" + e.keyCode] = e.keyCode
-    bp.console.log('down %s ' + e.keyCode, Object.keys(keysDown))
+    console.log('down %s ' + e.keyCode, Object.keys(keysDown))
     setTitle()
 }
 document.body.onkeyup = function (e) {
-    bp.console.log('up %s ', e.keyCode, Object.keys(keysDown).length)
+    console.log('up %s ', e.keyCode, Object.keys(keysDown).length)
     delete keysDown["" + e.keyCode]
     setTitle()
 }

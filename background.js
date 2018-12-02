@@ -1,8 +1,8 @@
 // Copyright (c) 2018 Alben Software. All rights reserved.
 
-
+console.log('lo]]:')
 chrome.commands.onCommand.addListener(function (command) {
-    bp.console.log('Command:', command)
+    console.log('Command:', command)
     processURL(function (texts) {
         
         if (texts.length > 0) {
