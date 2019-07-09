@@ -48,6 +48,8 @@ let patterns = [
     [/(https?:\/\/).*\.([^/.]*)\.([^/.]*).*$/, "$1$2.$3"],
     [/(https:\/\/.*)\?.*$/, "$1"],
     [/(https?:\/\/.*)\/ref=.*$/, "$1"]
+    , [/(https?:\/\/)(www.google.com\/search\?[^&]*).*$/, "$1$2"]
+
 ]
 function processURL(cb) {
    if (isFirefox) {
